@@ -1,0 +1,136 @@
+@import "../vendor/bootstrap/scss/functions";
+
+@import "support/functions";
+@import "variables";
+@import "support/mixins";
+
+@import "../vendor/bootstrap/scss/bootstrap";
+
+@import "../vendor/Font-Awesome/scss/fontawesome.scss";
+@import "../vendor/Font-Awesome/scss/solid.scss";
+@import "../vendor/Font-Awesome/scss/brands.scss";
+
+@import "support/utilities";
+@import "colors";
+@import "boxes";
+@import "blog";
+@import "code";
+@import "nav";
+@import "sidebar-tree";
+@import "sidebar-toc";
+@import "buttons";
+@import "breadcrumb";
+@import "alerts";
+@import "content";
+@import "main-container";
+@import "blocks/blocks";
+@import "section-index";
+@import "pageinfo";
+@import "taxonomy";
+@import "drawio";
+@import "shortcodes";
+
+@if $td-enable-google-fonts {
+    @import url($web-font-path);
+}
+
+footer {
+    min-height: 150px;
+
+    @include media-breakpoint-down(lg) {
+        min-height: 200px;
+    }
+}
+
+a {
+    color: $links;
+}
+
+// Adjusting header stylings
+.display-1 {
+    font-size: calc(1.625rem + 4.5vw);
+    font-weight: 300;
+    line-height: 1.2;
+
+    @media (min-width: 1200px) {
+        font-size: 5rem;
+    }
+}
+
+// Pagefind search styling 
+#search {
+    width: 100%;
+}
+
+.pagefind-ui__result-excerpt {
+    min-width: 0 !important;
+    overflow: hidden;
+}
+
+@include media-breakpoint-up(md) {
+    // Padding for main content
+    .td-404 main,.td-main main {
+        padding-top: 5rem;
+    }
+
+    // Adjust anchors vs the fixed menu.
+    .td-offset-anchor:target {
+        display: block;
+        position: relative;
+        top: -4rem;
+        visibility: hidden;
+    }
+
+    h2[id]:before,
+    h3[id]:before,
+    h4[id]:before,
+    h5[id]:before {
+        display: block;
+        content: " ";
+        margin-top: -5rem;
+        height: 5rem;
+        visibility: hidden;
+    }
+}
+
+// Remove extra padding on different screen sizes
+.td-breadcrumbs,
+.td-content,
+.td-community-links {
+    padding-inline: 0;
+}
+
+// Prevent navbar max-width applying until larger screens than container-xl
+@media (min-width: 1140px) {
+    .td-footer-container {
+        max-width: 100%;
+    }
+    .td-footer-links-left {
+        padding-left: 1rem;
+    }
+    .td-footer-links-right {
+        padding-right: 1rem;
+
+    }
+}
+@media (min-width: 1750px) {
+    .td-footer-container {
+        max-width: 1140px;
+    }
+    .td-footer-links-left {
+        padding-left: 0;
+    }
+    .td-footer-links-right {
+        padding-right: 0;
+    }
+}
+
+@include media-breakpoint-up(xl) {
+    .td-arrow-down,
+    .td-overlay__inner {
+        padding-inline: 0;
+    }
+}
+
+@import "rtl/main";
+@import "styles_project";
